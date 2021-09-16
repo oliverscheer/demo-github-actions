@@ -18,8 +18,8 @@ jobs:
 
       - uses: actions/checkout@v2
 
-      - uses: actions/say-something@v1
+      - uses: actions/say-something
         with:
           text-to-say: "Hi, Oliver"
 
-      - uses: actions/say-something@v1
+      - uses: actions/say-something
