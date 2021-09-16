@@ -1,21 +1,25 @@
 name: "say-something-action"
 description: "Outputs some values"
 inputs:
-  user-name:
-    description: "Name of user"
+  text-to-say:
+    description: "Text to say"
     required: true
-    default: "Oliver"
-# outputs:
-#   user-greeting:
-#     description: "Complete greeting text for user"
-
-jobs:
-  say-hello-job:
-    name: 'say hello job'
-    runs-on: ubuntu-latest
-    steps:
+    default: "Hello, World"
+outputs:
+  random-number:
+    description: "Random number"
+    value: ${{ steps.random-number-generator.outputs.random-id }}
+runs:
+  using: composite
+  steps:
       - name: 'Say welcome'
+        shell: bash
         run: echo "Hello, Oliver"
 
       - name: 'Say good bye'
+        shell: bash
         run: echo "Good bye, Oliver
+
+      - id: random-number-generator
+        run: echo "::set-output name=random-id::$(echo $RANDOM)"
+        shell: bash
