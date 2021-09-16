@@ -1,4 +1,4 @@
-name: "say-something"
+name: "say-something-action"
 description: "Outputs some values"
 inputs:
   user-name:
