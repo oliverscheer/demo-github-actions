@@ -1,0 +1,20 @@
+name: hello-world-with-included-actions
+
+on:
+  workflow_dispatch:
+    inputs:
+      your_name:
+        description: 'Your name'
+        required: true
+        default: 'John'
+
+jobs:
+  say-hello-job:
+    name: 'say hello job'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Say welcome'
+        run: echo "Hello, " ${{ github.event.inputs.your_name }}
+
+      - name: say-somewithing-with-action
+        uses: ./.github/actions/say-something

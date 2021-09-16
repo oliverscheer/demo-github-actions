@@ -1,13 +1,13 @@
-name: "hello-world"
-description: "A simple workflow"
+name: "say-something"
+description: "Outputs some values"
 inputs:
   user-name:
     description: "Name of user"
     required: true
     default: "Oliver"
-outputs:
-  user-greeting:
-    description: "Complete greeting text for user"
+# outputs:
+#   user-greeting:
+#     description: "Complete greeting text for user"
 
 jobs:
   say-hello-job:
