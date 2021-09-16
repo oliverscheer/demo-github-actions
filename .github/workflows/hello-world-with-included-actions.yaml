@@ -1,9 +1,14 @@
 name: hello-world-with-included-actions
 
 on:
+  workflow_run:
+    workflows: ["Main Workflow"]
+    types:
+      - completed
+
   workflow_dispatch:
     inputs:
-      your_name:
+      user_name:
         description: 'Your name'
         required: true
         default: 'John'
@@ -14,10 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+
       - id: foo
         name: "foo"
         uses: ./.github/actions/hello-world-composite-action
         with:
-          who-to-greet: 'Mona the Octocat'
+          who-to-greet: ${{ github.event.inputs.user_name }}'
+
       - run: echo random-number ${{ steps.foo.outputs.random-number }}
         shell: bash
