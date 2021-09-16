@@ -16,5 +16,7 @@ jobs:
       - name: 'Say welcome'
         run: echo "Hello, " ${{ github.event.inputs.your_name }}
 
+      - uses: actions/checkout@v2
+
       - name: say-somewithing-with-action
         uses: ./.github/actions/say-something
