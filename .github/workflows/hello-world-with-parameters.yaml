@@ -1,4 +1,4 @@
-name: hello-world
+name: hello-world-with-parameters
 
 on:
   workflow_dispatch:
