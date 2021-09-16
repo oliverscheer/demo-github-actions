@@ -13,13 +13,10 @@ jobs:
     name: 'say hello job'
     runs-on: ubuntu-latest
     steps:
-      - name: 'Say welcome'
-        run: echo "Hello, " ${{ github.event.inputs.your_name }}
-
       - uses: actions/checkout@v2
-
-      - uses: actions/say-something
+      - id: foo
+        uses: actions/hello-world-composite-action@v1
         with:
-          text-to-say: "Hi, Oliver"
-
-      - uses: actions/say-something
+          who-to-greet: 'Mona the Octocat'
+      - run: echo random-number ${{ steps.foo.outputs.random-number }}
+        shell: bash
