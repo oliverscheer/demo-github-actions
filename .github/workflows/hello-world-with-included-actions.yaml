@@ -20,6 +20,9 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      - id: test
+        run: echo "Hi, ${{ github.event.inputs.user_name }}"
+
       - id: foo
         name: "foo"
         uses: ./.github/actions/hello-world-composite-action
