@@ -1,0 +1,19 @@
+name: hello-world
+
+on:
+  workflow_dispatch:
+    inputs:
+      your_name:
+        description: 'Your name'
+        required: true
+        default: 'John'
+
+jobs:
+  say-hello-job:
+    name: 'say hello job'
+    steps:
+      - name: welcome
+        run: echo "Hello, " github.event.inputs.your_name
+
+      - name: good-bye
+        run: echo "Good bye, " github.event.inputs.your_name
