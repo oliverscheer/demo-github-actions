@@ -15,6 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - id: foo
+        name: "foo"
         uses: ./.github/actions/hello-world-composite-action
         with:
           who-to-greet: 'Mona the Octocat'
