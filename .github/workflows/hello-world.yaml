@@ -13,8 +13,8 @@ jobs:
     name: 'say hello job'
     runs-on: ubuntu-latest
     steps:
-      - name: welcome
-        run: echo "Hello, " github.event.inputs.your_name
+      - name: 'Say welcome'
+        run: echo "Hello, " ${{ github.event.inputs.your_name }}
 
-      - name: good-bye
-        run: echo "Good bye, " github.event.inputs.your_name
+      - name: 'Say good bye'
+        run: echo "Good bye, " ${{ github.event.inputs.your_name }}
